@@ -1,0 +1,31 @@
+.registration-section {
+  padding: 10px;
+  border-radius: 8px;
+  margin: 100px auto;
+  text-align: center;
+  border: solid 3px var(--yellow);
+}
+
+.registration-section h2 {
+  margin-bottom: 20px;
+}
+
+#register-button:hover {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+#registration-success,
+#registration-error {
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 5px var(--yellow);
+}
+
+.form-check-input:checked {
+  background-color: var(--yellow);
+  border-color: var(--yellow);
+}
