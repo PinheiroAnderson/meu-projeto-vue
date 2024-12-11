@@ -1,7 +1,5 @@
 <template>
   <div>
-    <div id="navbar-component"></div>
-
     <header>
       <div class="navbox">
         <div class="header-content container">
@@ -22,10 +20,13 @@
 
     <section class="bg-black service-container" id="services">
       <h2 class="display-4 text-white text-center mb-4">Nossos Serviços</h2>
-      <div
-        class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4"
-        id="card-component"
-      ></div>
+      <div class="container text-center">
+        <div class="row">
+          <div class="col">
+            <CardComponent />
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="agendamento-container" id="agendar">
@@ -154,7 +155,9 @@
   </div>
 </template>
 
-<script lang="ts"></script>
+<script setup lang="ts">
+import CardComponent from "@/components/CardComponent.vue";
+</script>
 
 <style scoped>
 @import "@/assets/css/home.css";
