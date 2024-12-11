@@ -2,9 +2,9 @@
   <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
       <!-- <a class="navbar-brand" href="#">Navbar</a> logo da loja -->
-      <img src="../../public/img/logo.jpg" height="40" alt="" />
+      <img src="../../public/img/logo.jpg" height="40" alt="imgLogo" />
       <button
-        class="navbar-toggler bg-yellow"
+        class="navbar-toggler"
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#navbarNav"
@@ -39,6 +39,12 @@
 <script setup lang="ts"></script>
 
 <style scoped>
+@import "@/assets/css/color.css";
+
+.navbar-toggler {
+  background-color: var(--yellow);
+}
+
 .navbar {
   width: 100%;
   background-color: var(--shadow);
