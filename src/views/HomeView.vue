@@ -20,12 +20,8 @@
 
     <section class="bg-black service-container" id="services">
       <h2 class="display-4 text-white text-center mb-4">Nossos Serviços</h2>
-      <div class="container text-center">
-        <div class="row">
-          <div class="col">
-            <CardComponent />
-          </div>
-        </div>
+      <div class="card-container">
+        <CardComponent />
       </div>
     </section>
 
