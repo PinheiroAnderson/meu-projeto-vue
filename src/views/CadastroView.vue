@@ -1,0 +1,176 @@
+<template>
+  <section
+    class="registration-section col-md-5 col-lg-4 mx-auto bg-dark text-white"
+  >
+    <h2>Cadastrar</h2>
+    <form id="registrationForm" enctype="multipart/form-data">
+      <div class="form-group mb-3">
+        <label for="nomeInput">Nome</label>
+        <input
+          type="text"
+          id="nomeInput"
+          name="nome"
+          class="form-control"
+          placeholder="Seu nome completo"
+          required
+          autofocus
+        />
+        <div id="nomeHelp" class="form-text"></div>
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="telefoneInput">Telefone</label>
+        <input
+          type="tel"
+          id="telefoneInput"
+          data-mask="telefone"
+          name="telefone"
+          class="form-control"
+          placeholder="(XX) XXXXX-XXXX"
+          required
+        />
+        <div id="telHelp" class="form-text"></div>
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="emailInput">Email</label>
+        <input
+          type="email"
+          id="emailInput"
+          name="email"
+          class="form-control"
+          placeholder="exemplo@email.com"
+          required
+        />
+        <div id="emailHelp" class="form-text"></div>
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="senhaInput">Senha</label>
+        <input
+          type="password"
+          id="senhaInput"
+          name="senha"
+          class="form-control"
+          placeholder="Crie uma senha"
+          required
+        />
+        <div id="senhaHelp" class="form-text"></div>
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="confirmasenhaInput">Confirme sua senha</label>
+        <input
+          type="password"
+          id="confirmasenhaInput"
+          name="confirmasenha"
+          class="form-control"
+          placeholder="Confirme sua senha"
+          required
+        />
+        <div id="confirmaHelp" class="form-text"></div>
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="foto">Foto</label>
+        <input
+          type="file"
+          id="foto"
+          name="foto"
+          class="form-control"
+          accept="image/*"
+        />
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="tipoPessoa">Tipo de pessoa</label> <br />
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="tipoPessoa"
+            id="tipoFisica"
+            value="fisica"
+          />
+          <label class="form-check-label" for="tipoFisica">Física</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="tipoPessoa"
+            id="tipoJuridica"
+            value="juridica"
+          />
+          <label class="form-check-label" for="tipoJuridica">Jurídica</label>
+        </div>
+        <div id="tipoHelp" class="form-text"></div>
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="genero">Gênero</label>
+        <select id="genero" name="genero" class="form-select" required>
+          <option value="" disabled selected>Selecione</option>
+          <option value="masculino">Masculino</option>
+          <option value="feminino">Feminino</option>
+          <option value="outro">Outro</option>
+        </select>
+        <div id="generoHelp" class="form-text"></div>
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="tipoDocumento">Tipo de documento</label> <br />
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="tipoDocumento"
+            id="tipoCpf"
+            value="cpf"
+          />
+          <label class="form-check-label" for="tipoCpf">CPF</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="tipoDocumento"
+            id="tipoCnpj"
+            value="cnpj"
+          />
+          <label class="form-check-label" for="tipoCnpj">CNPJ</label>
+        </div>
+        <br /><label for="documentoInput">Documento</label>
+        <input
+          type="text"
+          id="documentoInput"
+          name="documento"
+          class="form-control"
+          placeholder="Documento de identificação"
+          required
+        />
+        <div id="documentHelp" class="form-text"></div>
+      </div>
+      <button type="reset" id="" class="btn btn-warning w-50 my-3">
+        Cancelar
+      </button>
+      <button type="button" id="registerButton" class="btn btn-warning w-50">
+        Cadastrar
+      </button>
+    </form>
+    <div
+      id="message-area"
+      class="alert alert-success"
+      role="alert"
+      style="display: none"
+    >
+      Cadastro realizado com sucesso!
+    </div>
+  </section>
+</template>
+
+<script setup lang="ts"></script>
+
+<style scoped>
+@import "@/assets/css/cadastro.css";
+</style>
