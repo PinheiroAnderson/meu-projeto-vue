@@ -17,7 +17,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="index.html">Inicio</a>
+            <a class="nav-link" aria-current="page" href="/home">Inicio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="index.html#services">Serviços</a>
@@ -28,7 +28,7 @@
         </ul>
         <ul class="navbar-nav me-1">
           <li class="nav-item">
-            <a class="nav-link" href="login.html">Login</a>
+            <a class="nav-link" href="/login">Login</a>
           </li>
         </ul>
       </div>
@@ -39,31 +39,5 @@
 <script setup lang="ts"></script>
 
 <style scoped>
-@import "@/assets/css/color.css";
-
-.navbar-toggler {
-  background-color: var(--yellow);
-}
-
-.navbar {
-  width: 100%;
-  background-color: var(--shadow);
-  backdrop-filter: blur(10px);
-}
-
-.navbar .nav-link {
-  text-decoration: none;
-  color: var(--white);
-  font-size: 1.5rem;
-  padding: 5px 15px;
-  transition: 0.3s ease;
-  border-bottom: solid 2px transparent;
-}
-
-.navbar .nav-link:hover,
-.navbar .nav-link:active {
-  color: var(--yellow);
-  border-bottom: solid 2px var(--yellow);
-  transition: 0.3s ease;
-}
+@import "@/assets/css/navbar.css";
 </style>
