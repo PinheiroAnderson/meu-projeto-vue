@@ -13,7 +13,6 @@
 import serviceData from "@/core/mocks/service.json";
 import { ref } from "vue";
 
-// Variável reativa para armazenar os serviços
 const services = ref(serviceData);
 </script>
 

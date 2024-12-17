@@ -151,12 +151,14 @@
         />
         <div id="documentHelp" class="form-text"></div>
       </div>
-      <button type="reset" id="" class="btn btn-warning w-50 my-3">
-        Cancelar
-      </button>
-      <button type="button" id="registerButton" class="btn btn-warning w-50">
-        Cadastrar
-      </button>
+      <div class="d-grid gap-2 col-6 mx-auto">
+        <button type="reset" id="reset" class="btn btn-warning">
+          Cancelar
+        </button>
+        <button type="button" id="registerButton" class="btn btn-warning">
+          Cadastrar
+        </button>
+      </div>
     </form>
     <div
       id="message-area"

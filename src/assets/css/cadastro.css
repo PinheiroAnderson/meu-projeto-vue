@@ -10,11 +10,6 @@
   margin-bottom: 20px;
 }
 
-#register-button:hover {
-  background-color: var(--white);
-  color: var(--black);
-}
-
 #registration-success,
 #registration-error {
   margin-top: 20px;
@@ -28,4 +23,8 @@
 .form-check-input:checked {
   background-color: var(--yellow);
   border-color: var(--yellow);
+}
+
+.btn {
+  gap: 5;
 }
