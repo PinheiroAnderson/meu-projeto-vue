@@ -49,7 +49,9 @@
           </button>
           <p class="mt-3">
             Novato por aqui?
-            <a href="/cadastro" class="text-warning">Cadastre-se</a>
+            <RouterLink to="/cadastro" class="text-warning"
+              >Cadastre-se</RouterLink
+            >
           </p>
           <p><a href="" class="text-warning">Esqueceu a senha?</a></p>
           <p id="login-error" class="text-danger" style="display: none">

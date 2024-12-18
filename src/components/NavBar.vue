@@ -1,7 +1,6 @@
 <template>
   <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
-      <!-- <a class="navbar-brand" href="#">Navbar</a> logo da loja -->
       <img src="../../public/img/logo.jpg" height="40" alt="imgLogo" />
       <button
         class="navbar-toggler"
@@ -17,18 +16,20 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/home">Inicio</a>
+            <RouterLink class="nav-link" aria-current="page" to="/home"
+              >Inicio</RouterLink
+            >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.html#services">Serviços</a>
+            <a class="nav-link" href="/home#services">Serviços</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.html#contact">Contato</a>
+            <a class="nav-link" href="/home#contact">Contato</a>
           </li>
         </ul>
         <ul class="navbar-nav me-1">
           <li class="nav-item">
-            <a class="nav-link" href="/login">Login</a>
+            <RouterLink class="nav-link" to="/login">Login</RouterLink>
           </li>
         </ul>
       </div>
