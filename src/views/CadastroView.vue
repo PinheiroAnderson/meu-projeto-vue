@@ -96,7 +96,6 @@
             name="tipoPessoa"
             id="tipoFisica"
             value="fisica"
-            v-model="client.typePerson"
           />
           <label class="form-check-label" for="tipoFisica">Física</label>
         </div>
@@ -107,7 +106,6 @@
             name="tipoPessoa"
             id="tipoJuridica"
             value="juridica"
-            v-model="client.typePerson"
           />
           <label class="form-check-label" for="tipoJuridica">Jurídica</label>
         </div>
@@ -199,4 +197,10 @@ const client = ref(new Client());
 
 <style scoped>
 @import "@/assets/css/cadastro.css";
+
+.form-check-input {
+  width: 1rem; /* Tamanho padrão do Bootstrap */
+  height: 1rem;
+  margin-top: 0;
+}
 </style>
