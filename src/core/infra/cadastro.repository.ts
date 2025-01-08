@@ -1,7 +1,10 @@
-import { collection, addDoc, db, query, where, getDocs } from "./firebase.js"
+import { Client } from "../domain/Client";
+import { app } from "./firebase";
+import { getFirestore, collection, getDocs, addDoc, query, where } from 'firebase/firestore/lite';
 
+const db = getFirestore(app);
 
-export async function addClient(client) {
+export async function addClient(client:Client) {
     return await addDoc(collection(db, "client"), {...client});
 }
 

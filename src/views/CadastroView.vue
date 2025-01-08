@@ -170,7 +170,7 @@
         <button type="reset" id="reset" class="btn btn-warning">
           Cancelar
         </button>
-        <button type="button" id="registerButton" class="btn btn-warning">
+        <button type="button" id="registerButton" @click="add()" class="btn btn-warning">
           Cadastrar
         </button>
       </div>
@@ -191,8 +191,12 @@
 import { ref } from "vue";
 import { Client } from "@/core/domain/Client";
 
-const confPass = ref("");
-const client = ref(new Client());
+const confPass = ref<string>("");
+const client = ref<Client>(new Client());
+
+function add() {
+    clientService.add(client.value);
+}
 </script>
 
 <style scoped>

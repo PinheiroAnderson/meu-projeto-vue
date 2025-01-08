@@ -1,10 +1,11 @@
-import { addClient } from "./../infra/cadastro.repository.js";
+import { Client } from "../domain/Client";
+import { addClient } from "../infra/cadastro.repository";
 
 export const cadastroService = {
     add
 }
 
-function add(client) {
+function add(client:Client) {
     addClient(client)
         .then(res => {
             console.log("adicionado", res)
