@@ -3,7 +3,7 @@ export class Client {
   email: string;
   document?: string;
   telephone: string;
-  gender: string;
+  gender?: string;
   photo?: string;
   typePerson: string; 
   typeAccess: string;
@@ -15,10 +15,8 @@ export class Client {
     this.email = "";
     this.document = "";
     this.telephone = "";
-    this.gender = "";
-    this.photo = "";
     this.typePerson = "fisica";
-    this.typeAccess = "client";
+    this.typeAccess = "cliente";
     this.password = "";
     this.isActive = true;
   }

@@ -5,7 +5,10 @@ export const cadastroService = {
     add
 }
 
-function add(client:Client) {
+function add(client: Client) {
+    client.document = client.document ?? "";
+    client.gender = client.gender ?? "";
+    client.photo = client.photo ?? "";
     addClient(client)
         .then(res => {
             console.log("adicionado", res)
