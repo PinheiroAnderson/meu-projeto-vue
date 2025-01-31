@@ -40,7 +40,7 @@
 .navbar-nav .dropdown-item:hover,
 .navbar-nav .dropdown-item:active {
   background-color: var(--yellow);
-  color: var(--shadow);
+  color: var(--white);
 }
 
 .navbar-nav .dropdown-toggle {
@@ -50,4 +50,9 @@
 
 .navbar-nav .dropdown-toggle:hover {
   color: var(--yellow);
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
+  color: var(--white);
 }
