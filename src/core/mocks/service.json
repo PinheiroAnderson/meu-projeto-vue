@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Cortes de Cabelo",
+    "description": "Corte de cabelo profissional feito por especialistas.",
+    "imageUrl": "./img/logo.jpg"
+  },
+  {
+    "title": "Barbas",
+    "description": "Aparação e estilização da barba com precisão.",
+    "imageUrl": "./img/logo.jpg"
+  },
+  {
+    "title": "Massagem Capilar",
+    "description": "Relaxe com uma massagem capilar revitalizante.",
+    "imageUrl": "./img/logo.jpg"
+  },
+  {
+    "title": "Cortes na Maquina",
+    "description": "Cortes feitos somento com maquina.",
+    "imageUrl": "./img/logo.jpg"
+  }
+]

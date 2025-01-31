@@ -1,0 +1,53 @@
+.navbar-toggler {
+  background-color: var(--yellow);
+}
+
+.navbar {
+  width: 100%;
+  background-color: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.navbar .nav-link {
+  text-decoration: none;
+  color: var(--white);
+  font-size: 1.5rem;
+  padding: 5px 15px;
+  transition: 0.3s ease;
+  border-bottom: solid 2px transparent;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:active {
+  color: var(--yellow);
+  border-bottom: solid 2px var(--yellow);
+  transition: 0.3s ease;
+}
+
+.navbar-nav .dropdown-menu {
+  background-color: var(--shadow);
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-nav .dropdown-item {
+  color: var(--white);
+  font-size: 1.2rem;
+  padding: 8px 15px;
+  transition: 0.3s ease;
+}
+
+.navbar-nav .dropdown-item:hover,
+.navbar-nav .dropdown-item:active {
+  background-color: var(--yellow);
+  color: var(--shadow);
+}
+
+.navbar-nav .dropdown-toggle {
+  color: var(--white);
+  font-size: 1.5rem;
+}
+
+.navbar-nav .dropdown-toggle:hover {
+  color: var(--yellow);
+}

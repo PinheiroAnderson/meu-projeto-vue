@@ -1,0 +1,251 @@
+@import "./form.css";
+
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+section,
+div,
+header,
+footer {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+header {
+  background-image: url(../../../public/img/barber.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.logo img {
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  border: solid 4px var(--white);
+}
+
+.navbox {
+  background-color: var(--shadow);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--white);
+  height: 100%;
+  min-height: 400px;
+}
+
+.header-title,
+header .logo {
+  margin: 50px 25px;
+}
+
+.header-title {
+  font-size: 24px;
+  max-width: 400px;
+}
+
+.header-title h1 {
+  font-size: 36px;
+}
+
+.cards-container {
+  height: calc(100vh - 68px);
+}
+
+/* Estilo do contêiner de cards */
+.card-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+.contact-map,
+.contact-form {
+  padding: 40px;
+  width: 40%;
+  color: var(--white);
+}
+
+.contact {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.right {
+  display: flex;
+  justify-content: end;
+}
+
+p {
+  padding: 5px;
+}
+
+.contact-map iframe {
+  border-radius: 8px;
+}
+
+/* Container principal do agendamento */
+.agendamento-container {
+  position: relative;
+  width: 100%;
+  height: 350px; /* Altura total da tela */
+  background-image: url(../../../public/img/barber.jpg); /* Defina o caminho para sua imagem */
+  background-size: cover; /* Ajuste para cobrir todo o espaço */
+  background-position: center;
+  object-fit: contain;
+}
+
+/* Sobreposição de gradiente */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.7) 50%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Texto de agendamento */
+.texto-agendamento {
+  padding: 20px;
+  color: #fff;
+  max-width: 500px;
+}
+
+.texto-agendamento p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+
+/* Botão de agendamento */
+.btn-agendamento {
+  padding: 15px 30px;
+  background-color: blue;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: absolute; /* Define a posição como absoluta */
+  bottom: 40px; /* Espaçamento do botão em relação à parte inferior */
+  right: 40px; /* Espaçamento do botão em relação à parte direita */
+}
+
+.btn-agendamento:hover {
+  background-color: var(--yellow);
+}
+
+.comentarios-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px 20px;
+}
+
+.service-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px 20px;
+}
+
+.comentario {
+  max-width: 300px;
+  text-align: center;
+  margin: 20px;
+  padding: 20px;
+  background: var(--white);
+  border-radius: 10px;
+}
+
+.img-placeholder img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+/* Container da propaganda */
+.propaganda-container {
+  position: relative;
+  width: 100%;
+  height: 60vh; /* Altura da área de propaganda */
+  background-image: url(""); /* Defina o caminho para a imagem de fundo */
+  background-size: cover; /* A imagem cobre toda a área */
+  background-position: center; /* Centraliza a imagem */
+  display: flex;
+  align-items: center; /* Alinha verticalmente o conteúdo */
+}
+
+/* Conteúdo do texto */
+.conteudo {
+  padding: 40px;
+  max-width: 600px; /* Largura máxima do texto */
+  background: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Fundo semi-transparente para destacar o texto */
+  color: #fff; /* Cor do texto */
+}
+
+.conteudo h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+  color: var(--white);
+}
+
+.conteudo p {
+  font-size: 1.2em;
+  line-height: 1.5;
+  color: var(--white);
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column-reverse;
+  }
+
+  .header-title,
+  .header .logo {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .contact {
+    flex-direction: column;
+  }
+
+  .contact-map,
+  .contact-form {
+    width: 100%;
+    text-align: center;
+  }
+
+  .comentarios-container,
+  .service-container {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+}
