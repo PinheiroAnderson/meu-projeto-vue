@@ -30,31 +30,25 @@
                         <a class="nav-link" href="/home#contact">Contato</a>
                     </li>
                 </ul>
-                <ul class="navbar-nav me-1">
-                    <li class="nav-item" v-if="!user">
-                        <RouterLink class="nav-link" to="/login"
-                            >Login</RouterLink
+                <ul v-if="client" class="navbar-nav">
+                    <li class="nav-item">
+                        <RouterLink
+                            class="nav-link"
+                            :to="`/profile/${client?.id}`"
                         >
+                            {{ client?.name ?? client?.email }}
+                        </RouterLink>
                     </li>
-                    <li class="nav-item dropdown" v-else>
-                        <a
-                            class="nav-link dropdown-toggle"
-                            href="#"
-                            role="button"
-                            data-bs-toggle="dropdown"
-                        >
-                            {{ user?.displayName || user?.email }}
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <RouterLink class="dropdown-item" to="/perfil">Perfil</RouterLink>
-                            </li>
-                            <li>
-                                <button class="dropdown-item nav-link:hover" @click="logOut">
-                                    Sair
-                                </button>
-                            </li>
-                        </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" @click="logOut()"> Sair </a>
+                    </li>
+                </ul>
+
+                <ul v-else class="navbar-nav">
+                    <li class="nav-item">
+                        <RouterLink class="nav-link" to="/login">
+                            Entrar
+                        </RouterLink>
                     </li>
                 </ul>
             </div>
@@ -63,28 +57,37 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
+import router from "@/router";
 import { authService } from "../core/service/auth.service";
-import { getAuth, onAuthStateChanged, User } from "firebase/auth";
+import { Client } from "@/core/domain/Client";
 
-const user = ref<User | null>(null);
+const client = ref<Client | undefined>();
 const formError = ref("");
+let times = 0;
 
-onMounted(() => {
-    const auth = getAuth();
-    onAuthStateChanged(auth, currentUser => {
-        user.value = currentUser;
-    });
+function updateDataAuth() {
+    clearTimeout(times);
+    times = setTimeout(() => {
+        client.value = authService.getAuthUser();
+    }, 500);
+}
+
+function logOut() {
+    authService
+        .logOff()
+        .then(() => {
+            updateDataAuth();
+            router.push("/");
+        })
+        .catch(() => {
+            alert("Não foi possível sair!");
+        });
+}
+
+router.beforeEach(() => {
+    updateDataAuth();
 });
-
-const logOut = async () => {
-    try {
-        await authService.logOff();
-        user.value = null;
-    } catch (error) {
-        formError.value = pegarError(error);
-    }
-};
 
 function pegarError(error: unknown): string {
     if (error instanceof Error) {

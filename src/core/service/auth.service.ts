@@ -3,15 +3,15 @@ import {
     postLoginEmail,
     getLogOff as logOffAuth,
     loginGoogle as googleLogin,
-    getInfoUser,
 } from "@/core/infra/auth.repository";
 import { Client } from "../domain/Client";
+import router from "@/router";
 
 export const authService = {
     loginEmail,
     loginGoogle,
     logOff,
-    userInfo,
+    getAuthUser,
 };
 
 async function loginEmail(email: string, password: string) {
@@ -46,6 +46,15 @@ function logOff() {
     return logOffAuth();
 }
 
-function userInfo() {
-    return getInfoUser();
+function getAuthUser() {
+    const user = auth.currentUser;
+    if (!user) return;
+    return <Client><unknown>{
+      id: user.uid,
+      email: user?.email,
+      name: user?.displayName,
+      photo: user?.photoURL,
+    };
 }
+
+

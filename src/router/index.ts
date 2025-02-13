@@ -2,6 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import LoginView from "../views/LoginView.vue";
 import CadastroView from "../views/CadastroView.vue";
+import PerfilView from "@/views/PerfilView.vue";
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -18,6 +19,11 @@ const routes: Array<RouteRecordRaw> = [
         path: "/cadastro",
         name: "cadastro",
         component: CadastroView,
+    },
+    {
+        path: "/profile/:id",
+        name: "perfil",
+        component: PerfilView,
     },
     {
         path: "/about",

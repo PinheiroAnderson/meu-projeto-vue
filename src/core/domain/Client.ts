@@ -5,8 +5,8 @@ export class Client {
     telephone: string;
     gender?: string;
     photo?: string;
-    typePerson: string;
-    typeAccess: string;
+    typePerson?: string;
+    typeAccess?: string;
     password: string;
     isActive: boolean;
 

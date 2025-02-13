@@ -9,6 +9,7 @@ import {
     doc,
     query,
     where,
+    getDoc,
 } from "firebase/firestore/lite";
 
 const db = getFirestore(app);
@@ -31,9 +32,20 @@ export async function queryClient() {
     const q = query(collection(db, "client"), where("isActive", "==", true));
 
     const querySnapshot = await getDocs(q);
-    querySnapshot.forEach(doc => {
-        console.log(doc.id, " => ", doc.data());
-    });
+    querySnapshot.forEach(doc => {});
 
     return querySnapshot;
+}
+
+export async function getClient(idDoc: string) {
+    const docRef = doc(db, "person", idDoc);
+    const docSnap = await getDoc(docRef);
+
+    let client: Client | undefined = undefined;
+
+    if (docSnap.exists()) {
+        client = { ...docSnap.data() } as Client;
+    }
+
+    return client;
 }
