@@ -1,26 +1,65 @@
-.card {
-    max-width: 600px;
-    margin: 0 auto;
+.container-profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 88.7vh;
+  background-color: #f8f9fa;
 }
 
-.card-title {
-    font-size: 1.5rem;
-    font-weight: bold;
+.tela {
+  background-color: #222;
+  color: #fff;
+  flex: 1 1 calc(33.333% - 20px);
+  padding: 20px;
+  border: 1px solid #444;
+  border-radius: 8px;
+  max-width: 300px;
+  text-align: center;
+  margin: 0px;
+  transition: all 0.3s ease;
+  border: solid 2px var(--yellow);
 }
 
-.card-text {
-    font-size: 1.1rem;
+.tela h5 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
 }
 
-img {
-    max-width: 100%;
+.tela p {
+  font-size: 1rem;
+  margin-bottom: 10px;
 }
 
-.profile {
-    padding: 20px;
+.tela img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
 }
 
-.profile img {
-    max-width: 150px;
-    border-radius: 50%;
+.btn-tela {
+  background-color: blue;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-tela:hover {
+  background-color: var(--yellow);
+}
+
+
+@media (max-width: 768px) {
+  .tela {
+    flex: 1 1 calc(50% - 20px);
+
+  }
+}
+
+@media (max-width: 480px) {
+  .tela {
+    flex: 1 1 100%;
+
+  }
 }

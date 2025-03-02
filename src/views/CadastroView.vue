@@ -80,7 +80,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+import router from "@/router";
 import { Client } from "@/core/domain/Client";
 import { cadastroService } from "@/core/service/cadastro.service";
 import {
@@ -143,6 +144,26 @@ function resetForm() {
     confPass.value = "";
     currentStep.value = 1;
     formError.value = null;
+}
+
+onMounted(() => {
+    const idRouter = router.currentRoute.value.params.id?.toString();
+    if (idRouter) {
+        cadastroService.get(idRouter).then(res => {
+            if (res) {
+                client.value = res;
+            }
+        });
+    }
+});
+
+function sendData() {
+    if (client.value?.id) {
+        cadastroService
+            .edit(client.value)
+    } else {
+        cadastroService.add(client.value);
+    }
 }
 </script>
 

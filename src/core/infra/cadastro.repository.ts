@@ -5,11 +5,12 @@ import {
     getFirestore,
     collection,
     getDocs,
-    setDoc,
-    doc,
     query,
     where,
+    doc,
+    setDoc,
     getDoc,
+    updateDoc,
 } from "firebase/firestore/lite";
 
 const db = getFirestore(app);
@@ -48,4 +49,10 @@ export async function getClient(idDoc: string) {
     }
 
     return client;
+}
+
+export async function editClient(idDoc: string, client: Client) {
+    const docRef = doc(db, "client", idDoc);
+    client.password = "";
+    return await updateDoc(docRef, { ...client });
 }

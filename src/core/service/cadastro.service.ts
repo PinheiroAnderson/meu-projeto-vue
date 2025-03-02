@@ -1,9 +1,10 @@
 import { Client } from "../domain/Client";
-import { addClient, getClient } from "../infra/cadastro.repository";
+import { addClient, getClient, editClient } from "../infra/cadastro.repository";
 
 export const cadastroService = {
     add,
     get,
+    edit,
 };
 
 function add(client: Client) {
@@ -22,4 +23,9 @@ function add(client: Client) {
 async function get(id: string) {
     if (!id) throw new Error();
     return await getClient(id);
+}
+
+function edit(client: Client) {
+    if (!client.id) throw new Error("Dados invalidos!");
+    editClient(client.id, client);
 }

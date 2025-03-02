@@ -1,4 +1,5 @@
 export class Client {
+    id: string;
     name: string;
     email: string;
     document?: string;
@@ -11,6 +12,7 @@ export class Client {
     isActive: boolean;
 
     constructor() {
+        this.id = "";
         this.name = "";
         this.email = "";
         this.document = "";

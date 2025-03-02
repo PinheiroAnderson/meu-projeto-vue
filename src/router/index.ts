@@ -3,6 +3,7 @@ import HomeView from "../views/HomeView.vue";
 import LoginView from "../views/LoginView.vue";
 import CadastroView from "../views/CadastroView.vue";
 import PerfilView from "@/views/PerfilView.vue";
+import ServiceView from "@/views/ServiceView.vue";
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -24,6 +25,11 @@ const routes: Array<RouteRecordRaw> = [
         path: "/profile/:id",
         name: "perfil",
         component: PerfilView,
+    },
+    {
+        path: "/service/:id",
+        name: "ServiceView",
+        component: ServiceView,
     },
     {
         path: "/about",
