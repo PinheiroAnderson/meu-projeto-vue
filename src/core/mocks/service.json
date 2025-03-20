@@ -1,22 +1,29 @@
 [
-  {
-    "title": "Cortes de Cabelo",
-    "description": "Corte de cabelo profissional feito por especialistas.",
-    "imageUrl": "./img/logo.jpg"
-  },
-  {
-    "title": "Barbas",
-    "description": "Aparação e estilização da barba com precisão.",
-    "imageUrl": "./img/logo.jpg"
-  },
-  {
-    "title": "Massagem Capilar",
-    "description": "Relaxe com uma massagem capilar revitalizante.",
-    "imageUrl": "./img/logo.jpg"
-  },
-  {
-    "title": "Cortes na Maquina",
-    "description": "Cortes feitos somento com maquina.",
-    "imageUrl": "./img/logo.jpg"
-  }
+    {
+        "id": "1",
+        "nome": "Corte Masculino",
+        "valor": "R$ 30,00",
+        "descricao": "Corte clássico masculino.",
+        "descricaoCompleta": "Inclui lavagem e finalização com cera ou gel.",
+        "fotos": "./img/logo.jpg",
+        "duracao": "30 minutos"
+    },
+    {
+        "id": "2",
+        "nome": "Barba",
+        "valor": "R$ 20,00",
+        "descricao": "Aparar e modelar a barba.",
+        "descricaoCompleta": "Inclui toalha quente e aplicação de óleos.",
+        "fotos": "./img/logo.jpg",
+        "duracao": "20 minutos"
+    },
+    {
+        "id": "3",
+        "nome": "Lavagem longa",
+        "valor": "40.00",
+        "descricao": "Lavagem para cabelos logos",
+        "descricaoCompleta": "ahfjkashjflkgnslfkasgnmfklasmfg",
+        "fotos": "./img/logo.jpg",
+        "duracao": "4.5"
+    }
 ]

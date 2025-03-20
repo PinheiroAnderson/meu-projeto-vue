@@ -1,23 +1,23 @@
 export class Client {
+    id: string;
     name: string;
     email: string;
-    document?: string;
     telephone: string;
-    gender?: string;
-    photo?: string;
-    typePerson?: string;
-    typeAccess?: string;
+    photo: string | File;
     password: string;
     isActive: boolean;
 
     constructor() {
+        this.id = "";
         this.name = "";
         this.email = "";
-        this.document = "";
         this.telephone = "";
-        this.typePerson = "";
-        this.typeAccess = "";
+        this.photo = "";
         this.password = "";
         this.isActive = true;
     }
 }
+export type EditableClient = Pick<
+    Client,
+    "id" | "name" | "telephone" | "photo"
+>;

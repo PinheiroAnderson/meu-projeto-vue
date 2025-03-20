@@ -3,6 +3,8 @@ import HomeView from "../views/HomeView.vue";
 import LoginView from "../views/LoginView.vue";
 import CadastroView from "../views/CadastroView.vue";
 import PerfilView from "@/views/PerfilView.vue";
+import ServiceView from "@/views/ServiceView.vue";
+import PerfilEditView from "@/views/PerfilEditView.vue";
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -26,13 +28,21 @@ const routes: Array<RouteRecordRaw> = [
         component: PerfilView,
     },
     {
+        path: "/service/:id",
+        name: "ServiceView",
+        component: ServiceView,
+    },
+    {
+        path: "/client-edit/:id",
+        name: "Editar Usuário",
+        component: PerfilEditView,
+    },
+    {
         path: "/about",
         name: "about",
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
+
         component: () =>
-            import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+            import("../views/AboutView.vue"),
     },
 ];
 

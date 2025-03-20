@@ -1,5 +1,6 @@
 <template>
-    <section
+  <div class="container-profile">
+    <div
         class="registration-section col-md-5 col-lg-4 mx-auto bg-dark text-white"
     >
         <h2>Cadastrar</h2>
@@ -76,11 +77,13 @@
                 </button>
             </div>
         </div>
-    </section>
+      </div>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+import router from "@/router";
 import { Client } from "@/core/domain/Client";
 import { cadastroService } from "@/core/service/cadastro.service";
 import {
@@ -91,7 +94,6 @@ import {
     isPhone,
 } from "@/core/helpers/validator";
 import InputValue from "@/components/InputValue.vue";
-import ErrorMessage from "@/components/ErrorMessage.vue";
 
 const client = ref<Client>(new Client());
 const confPass = ref<string>("");
@@ -113,15 +115,21 @@ function prevStep() {
     formError.value = null;
 }
 
-function submitForm() {
+async function submitForm() {
     if (validateStep2()) {
-        cadastroService.add(client.value);
-        alert("Cadastro realizado com sucesso!");
-        resetForm();
+        try {
+            await cadastroService.add(client.value);
+            alert("Cadastro realizado com sucesso!");
+            resetForm();
+        } catch (error) {
+            console.error("Erro no cadastro:", error);
+            formError.value = "Erro ao cadastrar. Verifique os dados.";
+        }
     } else {
         formError.value = "Por favor, corrija os erros antes de cadastrar.";
     }
 }
+
 
 function validateStep1() {
     return (
@@ -144,9 +152,33 @@ function resetForm() {
     currentStep.value = 1;
     formError.value = null;
 }
+
+onMounted(() => {
+    const idRouter = router.currentRoute.value.params.id?.toString();
+    cadastroService.get(idRouter).then(res => {
+        if (res) {
+            client.value = {
+                ...client.value, // mantém valores default
+                ...res,          // sobrescreve os que vierem
+            };
+        }
+    });
+});
+
+function sendData() {
+    if (client.value?.id) {
+        cadastroService.edit(client.value);
+    } else {
+        cadastroService.add(client.value);
+    }
+}
+
+function add() {
+    cadastroService.add(client.value);
+}
 </script>
 
 <style scoped>
-@import "@/assets/css/cadastro.css";
+@import "@/assets/css/edit.css";
 @import "../assets/css/error.css";
 </style>
