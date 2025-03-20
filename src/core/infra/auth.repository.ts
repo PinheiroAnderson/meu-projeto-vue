@@ -43,7 +43,7 @@ export function getLogOff() {
 export function getInfoUser() {
     const user = auth.currentUser;
     if (user) {
-        
+
         return {
             displayName: user.displayName,
             email: user.email,
@@ -52,5 +52,5 @@ export function getInfoUser() {
             uid: user.uid,
         };
     }
-    return null; 
+    return null;
 }

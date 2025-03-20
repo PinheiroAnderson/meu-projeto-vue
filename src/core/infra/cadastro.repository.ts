@@ -1,6 +1,6 @@
 import { Client } from "../domain/Client";
 import { addAuth, removeAuth } from "./auth.repository";
-import { app } from "./firebase";
+import { app } from "../infra/firebase";
 import {
     getFirestore,
     collection,
@@ -12,20 +12,48 @@ import {
     getDoc,
     updateDoc,
 } from "firebase/firestore/lite";
+import {
+    getStorage,
+    ref,
+    uploadBytesResumable,
+    getDownloadURL,
+} from "firebase/storage";
+
+const storage = getStorage(app);
 
 const db = getFirestore(app);
+
+ export async function uploadProfilePhoto(file: File, userId: string): Promise<string> {
+    const storageRef = ref(storage, `avatars/${userId}/${file.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, file);
+
+    return new Promise((resolve, reject) => {
+        uploadTask.on(
+            "state_changed",
+            snapshot => {},
+            error => {
+                reject(error);
+            },
+            () => {
+                getDownloadURL(uploadTask.snapshot.ref).then(downloadURL => {
+                    resolve(downloadURL);
+                });
+            }
+        );
+    });
+}
 
 export async function addClient(client: Client) {
     return addAuth(client.email, client.password)
         .then(async userCredential => {
             const user = userCredential.user;
+            client.id = user.uid;
             client.password = "";
-            return await setDoc(doc(db, "client", user.uid), { ...client });
+            await setDoc(doc(db, "client", user.uid), { ...client });
+            return user.uid;
         })
         .catch(error => {
             removeAuth();
-            const errorCode = error.code;
-            const errorMessage = error.message;
             throw new Error(error);
         });
 }
@@ -38,18 +66,16 @@ export async function queryClient() {
     return querySnapshot;
 }
 
-export async function getClient(idDoc: string) {
-    const docRef = doc(db, "person", idDoc);
-    const docSnap = await getDoc(docRef);
+ export async function getClient(id: string) {
+     const docRef = doc(db, "client", id);
+     const docSnap = await getDoc(docRef);
 
-    let client: Client | undefined = undefined;
+     if (!docSnap.exists()) {
+         return null;
+     }
 
-    if (docSnap.exists()) {
-        client = { ...docSnap.data() } as Client;
-    }
-
-    return client;
-}
+     return { id: docSnap.id, ...docSnap.data() };
+ }
 
 export async function editClient(idDoc: string, client: Client) {
     const docRef = doc(db, "client", idDoc);

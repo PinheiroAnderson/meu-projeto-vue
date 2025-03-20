@@ -1,6 +1,6 @@
 <template>
-  <div class="container bg-body h-100">
-    <div v-if="service">
+  <div class="main-content">
+    <div class="service" v-if="service">
       <h1>{{ service.nome }}</h1>
       <p>{{ service.descricaoCompleta }}</p>
       <p>{{ service.valor }}</p>
@@ -24,7 +24,12 @@ const route = useRoute();
 const service = ref<Service | null>(null);
 
 onMounted(() => {
-    const serviceId = route.params.id as string;
-    service.value = getService(serviceId) || null;
+  const serviceId = route.params.id as string;
+  service.value = getService(serviceId) || null;
 });
 </script>
+
+<style scoped>
+@import "/src/assets/css/service.css";
+
+</style>
