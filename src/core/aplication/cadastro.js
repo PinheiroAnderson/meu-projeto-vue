@@ -29,7 +29,7 @@ function getFormClient() {
   client.phone = document.querySelector('#telefoneInput').value
   client.email = document.querySelector('#emailInput').value
   client.password = document.querySelector('#senhaInput').value
-  // client.picture = document.querySelector('#foto').value
+  client.picture = document.querySelector('#foto').value
   // client.type = document.querySelector('#tipoFisica').value
   // client.type = document.querySelector('#tipoJuridica').value
   // client.gender = document.querySelector('#genero').value

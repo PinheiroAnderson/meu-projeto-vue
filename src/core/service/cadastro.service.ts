@@ -8,7 +8,7 @@ export const cadastroService = {
 };
 
 function add(client: Client) {
-    client.photo = client.photo ?? "https://picsum.photos/100";
+    client.photo = client.photo ?? "/img/photoProfile.png";
     addClient(client)
         .then(id => {
             client.id = id;
